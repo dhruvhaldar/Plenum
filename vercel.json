@@ -1,11 +1,31 @@
 {
-  "functions": {
-    "api/**/*.go": {
-      "memory": 1024,
-      "maxDuration": 15
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/index.go",
+      "use": "@vercel/go"
+    },
+    {
+      "src": "api/chem/arrhenius.go",
+      "use": "@vercel/go"
+    },
+    {
+      "src": "api/auto/drivaer-bounds.go",
+      "use": "@vercel/go"
+    },
+    {
+      "src": "api/telemetry/update.go",
+      "use": "@vercel/go"
+    },
+    {
+      "src": "api/foam/generate.go",
+      "use": "@vercel/go"
     }
-  },
+  ],
   "routes": [
-    { "src": "/api/(.*)", "dest": "/api/$1" }
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/$1"
+    }
   ]
 }
