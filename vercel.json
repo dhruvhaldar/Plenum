@@ -1,22 +1,4 @@
 {
-  "functions": {
-    "api/chem/arrhenius.go": {
-      "memory": 1024,
-      "maxDuration": 15
-    },
-    "api/auto/drivaer-bounds.go": {
-      "memory": 1024,
-      "maxDuration": 15
-    },
-    "api/telemetry/update.go": {
-      "memory": 1024,
-      "maxDuration": 15
-    },
-    "api/foam/generate.go": {
-      "memory": 1024,
-      "maxDuration": 15
-    }
-  },
   "routes": [
     {
       "src": "/api/(.*)",
