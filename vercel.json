@@ -1,10 +1,26 @@
 {
   "version": 2,
   "builds": [
-    { "src": "api/chem/arrhenius.go", "use": "@vercel/go" },
-    { "src": "api/auto/drivaer-bounds.go", "use": "@vercel/go" },
-    { "src": "api/telemetry/update.go", "use": "@vercel/go" },
-    { "src": "api/foam/generate.go", "use": "@vercel/go" }
+    {
+      "src": "api/index.go",
+      "use": "@vercel/go"
+    },
+    {
+      "src": "api/chem/arrhenius.go",
+      "use": "@vercel/go"
+    },
+    {
+      "src": "api/auto/drivaer-bounds.go",
+      "use": "@vercel/go"
+    },
+    {
+      "src": "api/telemetry/update.go",
+      "use": "@vercel/go"
+    },
+    {
+      "src": "api/foam/generate.go",
+      "use": "@vercel/go"
+    }
   ],
   "routes": [
     {
