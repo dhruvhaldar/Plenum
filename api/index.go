@@ -63,9 +63,18 @@ const page = `<!doctype html>
 
   <script>
     async function checkHealth() {
-      const res = await fetch('/api');
-      const data = await res.json();
-      document.getElementById('output').textContent = JSON.stringify(data, null, 2);
+      const output = document.getElementById('output');
+      try {
+        const res = await fetch('/api/health');
+        if (!res.ok) {
+          throw new Error('Health check failed with status ' + res.status);
+        }
+
+        const data = await res.json();
+        output.textContent = JSON.stringify(data, null, 2);
+      } catch (err) {
+        output.textContent = err.message || String(err);
+      }
     }
 
     async function runArrhenius() {
