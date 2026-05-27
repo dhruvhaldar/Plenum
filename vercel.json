@@ -1,31 +1,28 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "version": 2,
   "builds": [
     {
-      "src": "api/index.go",
-      "use": "@vercel/go"
-    },
-    {
-      "src": "api/chem/arrhenius.go",
-      "use": "@vercel/go"
-    },
-    {
-      "src": "api/auto/drivaer-bounds.go",
-      "use": "@vercel/go"
-    },
-    {
-      "src": "api/telemetry/update.go",
-      "use": "@vercel/go"
-    },
-    {
-      "src": "api/foam/generate.go",
+      "src": "api/**/*.go",
       "use": "@vercel/go"
     }
   ],
   "routes": [
     {
-      "src": "/api/(.*)",
-      "dest": "/api/$1"
+      "src": "^/$",
+      "dest": "/api/index.go"
+    },
+    {
+      "src": "^/api/?$",
+      "dest": "/api/index.go"
+    },
+    {
+      "src": "^/api/foam/generate-dict/?$",
+      "dest": "/api/foam/generate.go"
+    },
+    {
+      "src": "^/api/(.*)$",
+      "dest": "/api/$1.go"
     }
   ]
 }
